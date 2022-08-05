@@ -46,7 +46,7 @@ const Form = ( {currentId, setCurrentId}) => {
     return(
         <Paper className = {classes.paper}>
             <form autoComplete="off" noValidate className = {classes.form} onSubmit = {handleSubmit}>
-            <Typography variant = "h6">${currentId ? 'Editing' : 'Creating' }a Memory</Typography>
+            <Typography variant = "h6">{currentId ? 'Editing ' : 'Creating ' }a Memory</Typography>
             <TextField name = "creator" 
                 variant = "outlined"
                 label = "Creator" 
@@ -73,7 +73,7 @@ const Form = ( {currentId, setCurrentId}) => {
                 label = "Tags" 
                 fullWidth
                 value = {postData.tags}
-                onChange = {(eventParam) => setPostData ({ ...postData, tags: eventParam.target.value})}
+                onChange = {(eventParam) => setPostData ({ ...postData, tags: eventParam.target.value.split(',')})}
             />
             <div className={classes.fileInput}>
                 <FileBase   
